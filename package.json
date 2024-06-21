@@ -1,0 +1,19 @@
+{
+  "name": "eg-fullstack-assessment",
+  "version": "1.0.0",
+  "description": "A small assessment for Authentication, having both Frontend and Backend within it",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "cd server && npm run start:dev",
+    "start:client": "cd client && npm start",
+    "install": "npm run install:server && npm run install:client",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install"
+  },
+  "author": "Sufyan Abbada",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
