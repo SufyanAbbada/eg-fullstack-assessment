@@ -7,7 +7,7 @@ import {
   UsePipes,
 } from '@nestjs/common';
 import { UsersService } from './user.service';
-import { CreateUserDto } from './users.dto';
+import { CreateUserDto, LoginUserDto } from './users.dto';
 import { InputValidationPipe } from 'src/common/input-validation.pipe';
 
 @Controller('users')
@@ -27,7 +27,13 @@ export class UsersController {
   }
 
   @Post('login')
-  signIn() {
-    return this.userService.login();
+  @HttpCode(HttpStatus.ACCEPTED)
+  async signIn(@Body() loginUserDto: LoginUserDto) {
+    const existingUser = await this.userService.login(loginUserDto);
+
+    return {
+      status: HttpStatus.ACCEPTED,
+      data: existingUser,
+    };
   }
 }

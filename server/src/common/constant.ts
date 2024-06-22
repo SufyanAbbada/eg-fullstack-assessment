@@ -13,6 +13,12 @@ const RESPONSE_MESSAGES = {
   PASSWORD_ERROR: 'Invalid Password format.',
   PASSWORD_ERROR_DESCRIPTION:
     'Password is required and must contain at least 1 letter, 1 number, 1 special character and must be minimum of 8 characters.',
+  EMAIL_NOT_FOUND_ERROR: 'User Not Found.',
+  EMAIL_NOT_FOUND_ERROR_DESCRIPTION:
+    'User with the provided Email was not found in the system.',
+  INVALID_CREDENTIALS: 'Invalid credentials.',
+  INVALID_CREDENTIALS_DESCRIPTION:
+    'Incorrect credentials passed for Authentication',
 };
 
 const APP_CONSTANTS = {
