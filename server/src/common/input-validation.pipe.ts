@@ -24,7 +24,7 @@ export class InputValidationPipe implements PipeTransform {
           error: RESPONSE_MESSAGES.REQUEST_ERROR,
           description: RESPONSE_MESSAGES.REQUEST_ERROR_DESCRIPTION,
         },
-        412,
+        HttpStatus.PRECONDITION_FAILED,
       );
     }
 
@@ -35,7 +35,7 @@ export class InputValidationPipe implements PipeTransform {
           error: RESPONSE_MESSAGES.NAME_ERROR,
           description: RESPONSE_MESSAGES.NAME_ERROR_DESCRIPTION,
         },
-        417,
+        HttpStatus.EXPECTATION_FAILED,
       );
 
     if (!validateEmail(value.email))
@@ -45,7 +45,7 @@ export class InputValidationPipe implements PipeTransform {
           error: RESPONSE_MESSAGES.EMAIL_ERROR,
           description: RESPONSE_MESSAGES.EMAIL_ERROR_DESCRIPTION,
         },
-        417,
+        HttpStatus.EXPECTATION_FAILED,
       );
 
     if (!validatePassword(value.password)) {
@@ -55,11 +55,11 @@ export class InputValidationPipe implements PipeTransform {
           error: RESPONSE_MESSAGES.PASSWORD_ERROR,
           description: RESPONSE_MESSAGES.PASSWORD_ERROR_DESCRIPTION,
         },
-        417,
+        HttpStatus.EXPECTATION_FAILED,
       );
     }
 
-    // Trimming the name in case trailing spaces were added
+    // Trimming the name in case trailing spaces were present in it
     value.name = value.name.trim();
     return value;
   }
