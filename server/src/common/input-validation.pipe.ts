@@ -59,7 +59,7 @@ export class InputValidationPipe implements PipeTransform {
       );
     }
 
-    // Trimming the name in case trailing spaces were present in it
+    // Trimming the name in case trailing spaces were present in the name
     value.name = value.name.trim();
     return value;
   }

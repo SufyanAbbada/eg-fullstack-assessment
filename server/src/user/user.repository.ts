@@ -13,6 +13,6 @@ export class UserRepository {
   }
 
   async emailExists(email: string) {
-    return (await this.userModel.findOne({ email: email })) === null;
+    return (await this.userModel.findOne({ email: email })) !== null;
   }
 }
