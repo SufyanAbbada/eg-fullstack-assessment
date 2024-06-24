@@ -6,7 +6,7 @@ import {
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
-import { CreateUserDto, LoginUserDto } from 'src/user/users.dto';
+import { CreateUserDto, LoginUserDto } from '../user/users.dto';
 import {
   validateEmail,
   validateName,
@@ -15,7 +15,7 @@ import {
 
 @Injectable()
 export class InputValidationPipe implements PipeTransform {
-  // * The reason to use `any` as a type here is to have the grip on our end to respond with a custom error
+  // The reason to use `any` as a type here is to have the grip on our end to respond with a custom error
   transform(value: any, metadata: ArgumentMetadata) {
     if (
       metadata.type !== 'body' &&

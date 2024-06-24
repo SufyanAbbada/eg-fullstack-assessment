@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import RESPONSE_MESSAGES, { APP_CONSTANTS } from 'src/common/constant';
+import RESPONSE_MESSAGES, { APP_CONSTANTS } from '../common/constant';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateUserDto, LoginUserDto } from './users.dto';
 import { UserRepository } from './user.repository';
