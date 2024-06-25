@@ -1,0 +1,21 @@
+.signup-body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #30e8bf, #ff8235);
+}
+
+.signup-form {
+  width: 100%;
+  max-width: 320px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 8px;
+}
+
+.signup-button {
+  margin-top: 20px;
+}

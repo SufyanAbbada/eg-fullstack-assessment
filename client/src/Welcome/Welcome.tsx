@@ -1,7 +1,7 @@
 import { Typography, Button, Box } from "@mui/material";
 import "./Welcome.css";
 
-function Welcome() {
+const Welcome: React.FC = () => {
   return (
     <Box className="body">
       <Box className="logoutButton">
@@ -21,6 +21,6 @@ function Welcome() {
       </Box>
     </Box>
   );
-}
+};
 
 export default Welcome;
