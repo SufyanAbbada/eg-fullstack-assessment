@@ -1,4 +1,4 @@
-.signup-body {
+.auth-body {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,7 +7,7 @@
   background: linear-gradient(to right, #30e8bf, #ff8235);
 }
 
-.signup-form {
+.auth-form {
   width: 100%;
   max-width: 320px;
   padding: 20px;
@@ -16,6 +16,6 @@
   border-radius: 8px;
 }
 
-.signup-button {
+.auth-button {
   margin-top: 20px;
 }

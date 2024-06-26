@@ -12,6 +12,15 @@ const theme = createTheme({
   typography: {
     h1: { fontSize: "64px", fontFamily: "Dancing Script, cursive" },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+        },
+      },
+    },
+  },
 });
 
 export default theme;
