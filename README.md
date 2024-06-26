@@ -39,7 +39,8 @@ cd eg-fullstack-assessment
 npm run install
 ```
 
-4. **Environment Setup**: Ensure `.env` files are correctly set up in both `client` and `server` directories as per the provided `.env.example`.
+4. **Environment Setup**: Ensure `.env` files are correctly set up in both `client` and `server` directories as per the provided `.env.example`. In order to do this (either follow [Frontend](https://github.com/SufyanAbbada/eg-fullstack-assessment/tree/main/client#readme) or [Backend](https://github.com/SufyanAbbada/eg-fullstack-assessment/tree/main/server#readme) properly) or rename `.env.example` to `.env` on both ends. **This is a necessary step, otherwise project will display issues**
+
 5. **Start the application**:
 
 ```
