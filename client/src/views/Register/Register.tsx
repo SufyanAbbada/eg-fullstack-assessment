@@ -1,10 +1,10 @@
 import * as Yup from "yup";
-import apiRequest from "../utils/apiCommunication";
+import apiRequest from "../../utils/apiCommunication";
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { toast } from "react-toastify";
-import { userOperations } from "../utils/userData";
+import { userOperations } from "../../utils/userData";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 
@@ -17,6 +17,8 @@ const Register: React.FC = () => {
       navigate("/");
     }
   }, [navigate]);
+
+  const [loading, setLoading] = useState(false);
 
   const initialValues = {
     name: "",
@@ -56,8 +58,10 @@ const Register: React.FC = () => {
   };
 
   const registerRequest = async (values: { name: string; email: string }) => {
+    setLoading(true);
     const { name, email } = values;
     const apiResponse = await apiRequest("register", { name, email, password });
+    setLoading(false);
     toast(apiResponse?.description);
     if (!apiResponse.error) {
       navigate("/");
@@ -155,23 +159,27 @@ const Register: React.FC = () => {
                   </Typography>
                 </Box>
 
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  className="auth-button"
-                  disabled={
-                    formik.isSubmitting ||
-                    !formik.dirty ||
-                    !formik.isValid ||
-                    !passwordChecklist.minLength ||
-                    !passwordChecklist.numberPresent ||
-                    !passwordChecklist.letterPresent ||
-                    !passwordChecklist.symbolPresent
-                  }
-                >
-                  Register
-                </Button>
+                {!loading ? (
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    className="auth-button"
+                    disabled={
+                      formik.isSubmitting ||
+                      !formik.dirty ||
+                      !formik.isValid ||
+                      !passwordChecklist.minLength ||
+                      !passwordChecklist.numberPresent ||
+                      !passwordChecklist.letterPresent ||
+                      !passwordChecklist.symbolPresent
+                    }
+                  >
+                    Register
+                  </Button>
+                ) : (
+                  <Typography>Requesting the server. Please Wait...</Typography>
+                )}
               </Form>
             )}
           </Formik>

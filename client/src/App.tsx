@@ -1,8 +1,9 @@
-import Welcome from "./Welcome/Welcome";
-import Register from "./Register/Register";
-import Login from "./Login/Login";
-import theme from "./theme";
 import React from "react";
+import Welcome from "./views/Welcome/Welcome";
+import Register from "./views/Register/Register";
+import Login from "./views/Login/Login";
+import InvalidPath from "./views/InvalidPath";
+import theme from "./config/theme";
 
 import { CssBaseline } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -23,6 +24,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Welcome />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="*" element={<InvalidPath />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

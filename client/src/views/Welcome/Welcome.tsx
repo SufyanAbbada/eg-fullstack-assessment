@@ -1,6 +1,6 @@
 import { Typography, Button, Box } from "@mui/material";
 import { useEffect } from "react";
-import { userOperations } from "../utils/userData";
+import { userOperations } from "../../utils/userData";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./Welcome.css";

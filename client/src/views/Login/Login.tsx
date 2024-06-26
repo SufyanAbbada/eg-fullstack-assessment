@@ -1,11 +1,11 @@
-import apiRequest from "../utils/apiCommunication";
+import apiRequest from "../../utils/apiCommunication";
 import * as Yup from "yup";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { userOperations } from "../utils/userData";
+import { userOperations } from "../../utils/userData";
 import "../Register/Auth.css";
 
 const Login: React.FC = () => {
@@ -17,6 +17,8 @@ const Login: React.FC = () => {
       navigate("/");
     }
   }, [navigate]);
+
+  const [loading, setLoading] = useState(false);
 
   const initialValues = {
     email: "",
@@ -39,7 +41,9 @@ const Login: React.FC = () => {
   });
 
   const loginRequest = async (values: { email: string; password: string }) => {
+    setLoading(true);
     const apiResponse = await apiRequest("login", values);
+    setLoading(false);
     toast(apiResponse?.description);
     if (!apiResponse.error) {
       navigate("/");
@@ -90,17 +94,21 @@ const Login: React.FC = () => {
                   aria-describedby="password-error"
                 />
 
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  className="auth-button"
-                  disabled={
-                    !isValid || !dirty || Object.keys(errors).length > 0
-                  }
-                >
-                  Login
-                </Button>
+                {!loading ? (
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    className="auth-button"
+                    disabled={
+                      !isValid || !dirty || Object.keys(errors).length > 0
+                    }
+                  >
+                    Login
+                  </Button>
+                ) : (
+                  <Typography>Requesting the server. Please Wait...</Typography>
+                )}
               </Form>
             )}
           </Formik>
