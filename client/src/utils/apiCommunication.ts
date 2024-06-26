@@ -39,7 +39,9 @@ const apiRequest = (
           resolve({
             error: false,
             description:
-              "Everything went well and you are registered in our system",
+              url === "register"
+                ? "Everything went well and you are registered in our system"
+                : "Very Well. You are Logged In, in the Application. Enjoy",
           });
         } else {
           resolve({

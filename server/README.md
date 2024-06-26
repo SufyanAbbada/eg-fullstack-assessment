@@ -1,4 +1,4 @@
-# Easy Generator Assessment - Backend
+# EasyGenerator Assessment - Backend
 
 ## Table of Contents
 
@@ -121,7 +121,7 @@ npm run test:e2e
 
 ## Video Demo:
 
-https://www.loom.com/share/67d005270aa242b586fcc6bc55b56613?sid=c6282d57-aff0-44da-becb-b054a311c254
+https://www.loom.com/share/67d005270aa242b586fcc6bc55b56613
 
 ## FAQs
 

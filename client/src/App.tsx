@@ -10,7 +10,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { ToastContainer } from "react-toastify";
 
-import "./App.css";
 import "react-toastify/dist/ReactToastify.min.css";
 
 const App: React.FC = () => {
